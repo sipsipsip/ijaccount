@@ -49446,7 +49446,7 @@
 	exports.default = {
 	    apis: {
 	        main: {
-	            host: 'http://localhost:3000/kantor/accounts/public/api/v1'
+	            host: 'api/v1'
 	        }
 	    }
 
