@@ -37,7 +37,7 @@ Route::get('home', 'HomeController@index');
     ADMIN SPECIFIC FITURES
     ------------------------------------------ */
 // Aplikasi
-Route::get('tambah_aplikasi', 'ApplicationController@getTambahAplikasi');
+Route::get('tambah_aplikasi', 'ApiController@getTambahAplikasi');
 
 
 
@@ -46,7 +46,15 @@ Route::get('tambah_aplikasi', 'ApplicationController@getTambahAplikasi');
     -------------------------------- */
 Route::group(['prefix'=>'api/v1'], function(){
     /** API APLIKASI **/
-    Route::get('aplikasi', 'ApplicationController@apiIndex');
+
+    Route::get('users/current', 'ApiController@apiCurrentUser');
+
+
+    Route::get('applications', 'ApiController@apiApplications');
+    Route::post('applications/add', 'ApiController@apiApplicationsAdd');
+    Route::post('applications/{id}/delete', 'ApiController@apiApplicationsDelete');
+    Route::get('applications/{id}', 'ApiController@apiApplicationsFind');
+    Route::post('applications/{id}/update', 'ApiController@apiApplicationsUpdate');
 });
 
 
@@ -57,26 +65,3 @@ Route::group(['prefix'=>'api/v1'], function(){
 Route::get('check-auth', 'AuthController@checkAuth');
 
 
-Route::post('upload/image', function(){
-    $image = \Input::file('image');
-    $filename = $image->getClientOriginalName();
-    $extension = $image->getClientOriginalExtension();
-
-    $image->move('images/ikon_aplikasi/',$filename);
-
-    $uploadedPath = $image->getRealPath();
-
-    \Eloquent::unguard();
-    $aplikasi = new \App\Models\Aplikasi();
-    $aplikasi->nama_aplikasi = \Input::get('namaAplikasi');
-    $aplikasi->deskripsi = \Input::get('deskripsi');
-    $aplikasi->icon_url = 'images/ikon_aplikasi/'.$filename;
-
-
-    if($aplikasi->save()){
-        return 1;
-    } else {
-        return 0;
-    }
-
-});

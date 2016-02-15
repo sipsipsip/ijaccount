@@ -6,71 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Apps Itjen</title>
 
-	<link href={{asset('css/app.css')}} rel="stylesheet">
+	<link href={{asset('css/app.css')}} rel="stylesheet"/>
+	<link href={{asset('css/custom.css')}} rel="stylesheet"/>
+	<link href={{asset('css/sweetalert.css')}} rel="stylesheet"/>
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-	<style>
-        .navbar-brand
-        {
-            position: absolute;
-            width: 100%;
-            left: 0;
-            top: 0;
-            text-align: center;
-            margin: auto;
-        }
-
-        .navbar-cool{
-            border-bottom: 1px solid #fff;
-            background: #f27000;
-            color: #fff;
-            border-radius: 0px
-        }
-
-        .navbar-cool a{
-            color: #fff;
-        }
-
-        .navbar-cool li a:focus, .navbar-cool li a:hover, .navbar-cool li a:active{
-            background: #f27010;
-        }
-
-        .navbar-cool .open a:focus, .navbar-cool .open a:hover, .navbar-cool .open a:active{
-            background: #f27010;
-        }
-
-        .ReactModal__Overlay {
-          -webkit-perspective: 600;
-          perspective: 600;
-          opacity: 0;
-        }
-
-        .ReactModal__Overlay--after-open {
-          opacity: 1;
-          transition: opacity 150ms ease-out;
-          z-index:9999
-        }
-
-        .ReactModal__Content {
-          -webkit-transform: scale(0.5) rotateX(-30deg);
-        }
-
-        .ReactModal__Content--after-open {
-          -webkit-transform: scale(1) rotateX(0deg);
-          transition: all 200ms ease-in;
-        }
-
-        .ReactModal__Overlay--before-close {
-          opacity: 0;
-        }
-
-        .ReactModal__Content--before-close {
-          -webkit-transform: scale(0.5) rotateX(30deg);
-          transition: all 150ms ease-in;
-        }
-
-	</style>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
