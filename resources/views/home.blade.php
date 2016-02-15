@@ -9,5 +9,5 @@
         <div id="render" style="height: 100%"></div>
 	</div>
 </div>
-<script src="http://localhost:8000/static/bundle.js"></script>
+<script src="{{asset('dist/bundle.js')}}"></script>
 @endsection
