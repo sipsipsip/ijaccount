@@ -13,9 +13,9 @@ class CRUDController extends Controller {
 	/** add new Model **/
      	public function getAdd(){
      	    \Eloquent::unguard();
-     	    $input = \Input::except(['model', 'btm', 'hm']);
-
              // Get the query params
+     	     $input = \Input::except(['model', 'btm', 'hm']);
+
              /** belongsTo relationship automatically handled here **/
              $modelClass = \Input::get('model');
              $modelClass = ucfirst($modelClass);
@@ -79,9 +79,10 @@ class CRUDController extends Controller {
 	/** add new Model **/
      	public function getUpdate($id){
      	    \Eloquent::unguard();
-     	    $input = \Input::except(['model', 'btm', 'hm']);
 
              // Get the query params
+     	     $input = \Input::except(['model', 'btm', 'hm']);
+
              /** belongsTo relationship automatically handled here **/
              $modelClass = \Input::get('model');
              $modelClass = ucfirst($modelClass);
