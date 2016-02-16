@@ -156,5 +156,58 @@ class CRUDController extends Controller {
      	}
 
 
+    /*
+     * DELETE
+     *
+     */
+     public function getDelete($id){
+         // Get the query params
+         $input = \Input::except(['model', 'btm', 'hm']);
+
+         /** belongsTo relationship automatically handled here **/
+         $modelClass = \Input::get('model');
+         $modelClass = ucfirst($modelClass);
+         $modelClass = 'App\\Models\\'.$modelClass;
+
+         /** if not found exit early **/
+         if(!$modelClass::find($id)){
+             $result = [];
+             $result['message'] = 'Tidak menemukan '.\Input::get('model');
+             $result['error'] = TRUE;
+             $result['success'] = FALSE;
+             return $result;
+         }
+
+         if($object = $modelClass::find($id)){
+            /**  delete related has Many first **/
+            if($hm = \Input::get('hm')){
+                foreach($hm as $owned => $values){
+                    $owneds = $object->$owned();
+                    foreach($owneds as $own){
+                        $own->delete();
+                    }
+                }
+            }
+
+            /** finally, delete the object **/
+            if($object->delete()){
+                $result = [];
+                $result['message'] = 'Berhasil mengapus '.\Input::get('model');
+                $result['error'] = FALSE;
+                $result['success'] = TRUE;
+                return $result;
+            } else {
+                $result = [];
+                $result['message'] = 'Gagal menghapus '.\Input::get('model');
+                $result['error'] = TRUE;
+                $result['success'] = FALSE;
+                return $result;
+            }
+         }
+
+     }
+
+
+
 
 }
