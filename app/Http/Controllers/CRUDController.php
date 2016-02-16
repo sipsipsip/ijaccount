@@ -100,9 +100,9 @@ class CRUDController extends Controller {
                 return $result;
              }
 
-             $modelClass = $modelClass::find($id);
+             $objectModel = $modelClass::find($id);
 
-             if($objectModel = $modelClass->update($input)){
+             if($objectModel->update($input)){
 
                  /** handle belongsToMany relationship **/
                  if(\Input::get('btm')){
