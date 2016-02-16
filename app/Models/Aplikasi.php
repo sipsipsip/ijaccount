@@ -15,4 +15,13 @@ class Aplikasi extends Model {
 	    return $this->belongsToMany('App\Models\AppTag', 'application_apptags', 'application_id', 'apptags_id');
 	 }
 
+
+	 /*
+	  * APPLICATION has many APLICATIONCOMMENTS
+	  *
+	  */
+	  public function comments(){
+	    return $this->hasMany('App\Models\ApplicationComments');
+	  }
+
 }

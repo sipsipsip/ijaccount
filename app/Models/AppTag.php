@@ -8,7 +8,7 @@ class AppTag extends Model {
 
 	// Tag has many Applications
 	public function applications(){
-	    return $this->belongsTo('App\Models\Aplikasi', 'apptags_id', 'application_id');
+	    return $this->belongsToMany('App\Models\Aplikasi', 'application_apptags', 'apptags_id', 'application_id');
 	}
 
 }
