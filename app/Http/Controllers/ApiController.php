@@ -6,8 +6,47 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Aplikasi;
+use App\Models\AppTag;
 
 class ApiController extends Controller {
+
+
+   /*
+    * GET DATA ENDPOINT
+    *
+    */
+    public function getData(){
+         $result;
+
+          // Get the query params
+         $page = \Input::get('page') ? \Input::get('page') : 1;
+         $per_page = \Input::get('per_page') ? \Input::get('per_page') : 10;
+         $sort_by = \Input::get('sort_by') == NULL ? NULL : \Input::get('sort_by');
+         $q = \Input::get('q');
+         $q_identifier = \Input::get('q_identifier');
+         $modelClass = \Input::get('model');
+         $modelClass = ucfirst($modelClass);
+         $modelClass = 'App\\Models\\'.$modelClass;
+
+
+         $result = $modelClass::take(10)->get();
+
+         if($q){
+             $result = $modelClass::where($q_identifier, 'like', '%'.$q.'%');
+             $result = $result->get();
+         }
+
+         return $result;
+    }
+
+
+
+
+
+    /*
+     ** GET all applications
+     *
+     */
 
     public function apiApplications(){
         $aplikasi = Aplikasi::all();
@@ -15,6 +54,11 @@ class ApiController extends Controller {
     }
 
 
+
+    /*
+     ** GET current logged in user
+     *
+     */
     public function apiCurrentUser(){
         $user = [];
         $user = \Auth::user();
@@ -23,6 +67,11 @@ class ApiController extends Controller {
         return $user;
     }
 
+
+    /*
+     ** ADD new application
+     *
+     */
     public function apiApplicationsAdd(){
         \Eloquent::unguard();
         $aplikasi = new \App\Models\Aplikasi();
@@ -50,7 +99,10 @@ class ApiController extends Controller {
 
     }
 
-
+    /*
+     ** UPDATE an application
+     *
+     */
     public function apiApplicationsUpdate($application_id){
         \Eloquent::unguard();
         $aplikasi = Aplikasi::findOrFail($application_id);
@@ -69,8 +121,6 @@ class ApiController extends Controller {
         }
 
 
-
-
         if($aplikasi->save()){
            return 1;
         } else {
@@ -79,6 +129,11 @@ class ApiController extends Controller {
 
     }
 
+
+    /*
+     * DELETE an application
+     *
+     */
     public function apiApplicationsDelete($id){
 
         $application = Aplikasi::find($id);
@@ -95,13 +150,15 @@ class ApiController extends Controller {
     }
 
 
+    /*
+     * FIND an application
+     *
+     */
     public function apiApplicationsFind($id){
         $application = Aplikasi::findOrFail($id);
 
         return $application;
     }
-
-
 
 
 }

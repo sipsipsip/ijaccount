@@ -6,4 +6,13 @@ class Aplikasi extends Model {
 
 	protected $table = 'applications';
 
+
+	/*
+	 ** APPLICATION belongs to many APPTAG
+	 */
+	 public function tags()
+	 {
+	    return $this->belongsToMany('App\Models\AppTag', 'application_apptags', 'application_id', 'apptags_id');
+	 }
+
 }

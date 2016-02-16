@@ -39,11 +39,11 @@
 }
 
 .navbar-cool li a:focus, .navbar-cool li a:hover, .navbar-cool li a:active{
-    background: #ccc;
+    background: #77B3D4;
 }
 
 .navbar-cool .open a:focus, .navbar-cool .open a:hover, .navbar-cool .open a:active{
-    background: #ccc;
+    background: #77B3D4;
 }
 
 .ReactModal__Overlay {

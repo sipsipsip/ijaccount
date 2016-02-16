@@ -45,16 +45,28 @@ Route::get('tambah_aplikasi', 'ApiController@getTambahAplikasi');
     APPLICATION API ENDPOINTS :: API
     -------------------------------- */
 Route::group(['prefix'=>'api/v1'], function(){
-    /** API APLIKASI **/
+    /** DATA API ENDPOINT **/
+    /** usage for querying any models, or keyword, paginate, etc **/
+    Route::get('data', 'ApiController@getData');
 
+
+    /** API CRUD **/
+    Route::controllers(['crud'=>'CRUDController']);
+
+
+    /** API USERS **/
     Route::get('users/current', 'ApiController@apiCurrentUser');
 
-
+    /** API APLIKASI **/
     Route::get('applications', 'ApiController@apiApplications');
     Route::post('applications/add', 'ApiController@apiApplicationsAdd');
     Route::post('applications/{id}/delete', 'ApiController@apiApplicationsDelete');
     Route::get('applications/{id}', 'ApiController@apiApplicationsFind');
     Route::post('applications/{id}/update', 'ApiController@apiApplicationsUpdate');
+
+
+    /** API APPLICATION TAGS **/
+    Route::controllers(['apptags'=> 'AppTagController']);
 });
 
 
