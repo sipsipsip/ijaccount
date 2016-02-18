@@ -40,6 +40,7 @@
 			<div class="content">
 				<div class="title">APPS ITJEN</div>
 				<div class="quote">{{ Inspiring::quote() }}</div>
+				<div class="quote"> we're connecting to SIASNI</div>
 			</div>
 		</div>
 	</body>
