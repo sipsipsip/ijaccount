@@ -67,7 +67,7 @@ class AuthController extends Controller {
             'timeout'  => 2.0,
         ]);
 
-        $response = $client->get('http://localhost:3000/kantor/pola-karir/public/remote-logout');
+//        $response = $client->get('http://localhost:3000/kantor/pola-karir/public/remote-logout');
         \Auth::logout();
         return \Redirect::to('/');
 	}
