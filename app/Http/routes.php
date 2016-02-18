@@ -51,7 +51,7 @@ Route::group(['prefix'=>'api/v1'], function(){
 
 
     /** API CRUD **/
-    Route::controllers(['crud'=>'CRUDController']);
+    Route::controllers(['general'=>'CRUDController']);
 
 
     /** API USERS **/

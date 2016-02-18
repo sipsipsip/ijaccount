@@ -64,6 +64,15 @@ return [
 			'strict'    => false,
 		],
 
+        'siasni' => [
+            'driver'    => 'sqlsrv',
+            'host'      => '10.242.35.40:1433',
+            'database'  => 'SIASNI',
+            'username'  => 'siasni',
+            'password'  => '5145n1',
+            'prefix'    => '',
+        ],
+
 		'pgsql' => [
 			'driver'   => 'pgsql',
 			'host'     => env('DB_HOST', 'localhost'),
