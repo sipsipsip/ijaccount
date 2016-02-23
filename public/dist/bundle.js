@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "http://localhost:8000/static";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -44,7 +44,6 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(1);
 	module.exports = __webpack_require__(1);
 
 
@@ -39196,7 +39195,7 @@
 	    _createClass(MainMenu, [{
 	        key: 'render',
 	        value: function render() {
-	            var role = this.props.role;
+	            var roles = this.props.roles;
 
 	            return _react2.default.createElement(
 	                'div',
@@ -39213,7 +39212,7 @@
 	                    _reactRouter.Link,
 	                    {
 	                        className: 'menu-link',
-	                        style: role != 0 ? { display: 'none' } : { display: 'inline' },
+	                        style: _lodash2.default.pluck(roles, 'id').indexOf("1") < 0 ? { display: 'none' } : { display: 'inline' },
 	                        to: 'admin'
 	                    },
 	                    'Administrator'
@@ -39363,7 +39362,7 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { style: { height: '100%' } },
-	                _react2.default.createElement(_MainMenu2.default, { role: this.props.currentUser.role }),
+	                _react2.default.createElement(_MainMenu2.default, currentUser),
 	                _react2.default.createElement(_ApplicationGrid2.default, {
 	                    filteredApplications: filteredApplications,
 	                    onSearch: function onSearch(value) {
@@ -53104,7 +53103,7 @@
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement(_MainMenu2.default, { role: this.props.currentUser.role }),
+	                _react2.default.createElement(_MainMenu2.default, currentUser),
 	                'AboutView ready'
 	            );
 	        }
@@ -53194,7 +53193,7 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { style: { height: '100%' } },
-	                _react2.default.createElement(_MainMenu2.default, { role: currentUser.role }),
+	                _react2.default.createElement(_MainMenu2.default, currentUser),
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'col-md-12', style: { height: '100%' } },
@@ -53356,6 +53355,20 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { style: { paddingTop: '20px' } },
+	                _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    {
+	                        to: 'admin/application' },
+	                    'Kelola aplikasi'
+	                ),
+	                _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    {
+	                        to: 'admin/application/tags'
+	                    },
+	                    'Kelola Tags Aplikasi'
+	                ),
+	                _react2.default.createElement('hr', null),
 	                this.props.children
 	            );
 	        }

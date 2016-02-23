@@ -6,4 +6,5 @@ class Pegawai extends Model {
 
     protected $table = 't_pegawai';
     protected $connection = 'siasni';
+    protected $primaryKey = 'nip';
 }

@@ -10,12 +10,32 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	use Authenticatable, CanResetPassword;
 
+	protected $connection = 'siasni';
+	protected $primaryKey = 'nip';
+	protected $table = 't_user';
+
+	public $timestamps = false;
+
+
+
+	public function datadiri(){
+	    return $this->hasOne('App\Models\Pegawai', 'nip', 'nip');
+	}
+
+	public function roles(){
+	    return $this->belongsToMany('App\Models\Role','role_user', 'nip','role_id');
+	}
+
+
+
+
+
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'users';
+
 
 	/**
 	 * The attributes that are mass assignable.

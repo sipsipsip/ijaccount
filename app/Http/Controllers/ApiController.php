@@ -20,21 +20,41 @@ class ApiController extends Controller {
 
           // Get the query params
          $page = \Input::get('page') ? \Input::get('page') : 1;
-         $per_page = \Input::get('per_page') ? \Input::get('per_page') : 10;
+         $per_page = \Input::get('per_page') ? \Input::get('per_page') : 100;
          $sort_by = \Input::get('sort_by') == NULL ? NULL : \Input::get('sort_by');
          $q = \Input::get('q');
          $q_identifier = \Input::get('q_identifier');
          $modelClass = \Input::get('model');
          $modelClass = ucfirst($modelClass);
          $modelClass = 'App\\Models\\'.$modelClass;
+         $with = \Input::get('with');
 
 
-         $result = $modelClass::take(10)->get();
+         if(\Input::get('model') == 'user'){
+            $modelClass = 'App\\'.ucfirst(\Input::get('model'));
+         }
+
+         $result = $modelClass::paginate($per_page);
+
+         // Handle relation on Non Searching
+         if($with){
+           $result = $modelClass::with($with)->paginate($per_page);
+         }
+
+
+         // Handle searching based on keyword
 
          if($q){
              $result = $modelClass::where($q_identifier, 'like', '%'.$q.'%');
-             $result = $result->get();
+
+             // Handle relation on Searching
+             if($with){
+                $result = $modelClass::with($with)->where($q_identifier, 'like', '%'.$q.'%');
+             }
+
+             $result = $result->paginate($per_page);
          }
+
 
          return $result;
     }
@@ -62,7 +82,10 @@ class ApiController extends Controller {
     public function apiCurrentUser(){
         $user = [];
         $user = \Auth::user();
-        $user['roles'] = ['mls'=>'teknisi'];
+        $nip = $user->nip;
+
+
+        $user = \App\User::with(['roles'])->find($nip);
 
         return $user;
     }

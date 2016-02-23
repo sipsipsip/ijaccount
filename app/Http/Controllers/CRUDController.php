@@ -88,6 +88,10 @@ class CRUDController extends Controller {
              $modelClass = ucfirst($modelClass);
              $modelClass = 'App\\Models\\'.$modelClass;
 
+              if(\Input::get('model') == 'user'){
+                 $modelClass = 'App\\'.ucfirst(\Input::get('model'));
+              }
+
 
 
              $result = [];

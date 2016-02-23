@@ -31,8 +31,8 @@ class AuthController extends Controller {
 			if($ldapbind){
 				// search username where muhammad.azamuddin
 				// log in the user
-				$user = User::where('kemenkeu', $username)->first();
-				\Auth::loginUsingId($user->id);
+				$user = User::where('email', $username)->first();
+				\Auth::loginUsingId($user->nip);
 				if(\Request::get('ggl')){
 				    return \Redirect::to(rtrim(base64_decode(\Request::get('ggl')), '/'));
 				}
