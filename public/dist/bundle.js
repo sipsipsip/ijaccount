@@ -39212,7 +39212,7 @@
 	                    _reactRouter.Link,
 	                    {
 	                        className: 'menu-link',
-	                        style: _lodash2.default.pluck(roles, 'id').indexOf(1) < 0 ? { display: 'none' } : { display: 'inline' },
+	                        style: _lodash2.default.pluck(roles, 'id').indexOf("1") < 0 && _lodash2.default.pluck(roles, 'id').indexOf(1) < 0 ? { display: 'none' } : { display: 'inline' },
 	                        to: 'admin'
 	                    },
 	                    'Administrator'
