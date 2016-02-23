@@ -66,7 +66,8 @@ return [
 
         'siasni' => [
             'driver'    => 'sqlsrv',
-            'host'      => '10.242.35.40:1433',
+            'host'      => '10.242.35.40',
+            'port'      => '1433',
             'database'  => 'SIASNI',
             'username'  => 'siasni',
             'password'  => '5145n1',
