@@ -64,6 +64,18 @@ return [
 			'strict'    => false,
 		],
 
+		'local_accounts' => [
+			'driver'    => 'mysql',
+			'host'      => env('DB_HOST', 'localhost'),
+			'database'  => env('DB_DATABASE', 'ij_accounts'),
+			'username'  => env('DB_USERNAME', 'root'),
+			'password'  => env('DB_PASSWORD', 'root'),
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+			'strict'    => false,
+		],
+
         'siasni' => [
             'driver'    => 'sqlsrv',
             'host'      => '10.242.35.40',
