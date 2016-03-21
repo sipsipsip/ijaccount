@@ -13,7 +13,7 @@ return [
 	|
 	*/
 
-	'debug' => env('APP_DEBUG'),
+	'debug' => env('APP_DEBUG', true),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return [
 	|
 	*/
 
-	'url' => 'http://localhost',
+	'url' => 'http://apps-itjen.kemenkeu.go.id/development/ijaccounts/public',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
 	|
 	*/
 
-	'key' => env('APP_KEY', 'IjAccountsss'),
+	'key' => env('APP_KEY', 'IjAccountssssfsf'),
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 
