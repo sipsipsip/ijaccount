@@ -71,7 +71,7 @@ class AuthController extends Controller {
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => 'http://apps-itjen.kemenkeu.go.id/staging/talent/public/remote-logout');
+            CURLOPT_URL => 'http://apps-itjen.kemenkeu.go.id/staging/talent/public/remote-logout'
         ));
         
         curl_exec($curl);
