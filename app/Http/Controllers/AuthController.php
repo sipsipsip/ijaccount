@@ -67,7 +67,7 @@ class AuthController extends Controller {
         ]);
 
 //        $response = $client->get('http://localhost:3000/kantor/pola-karir/public/remote-logout');
-        echo $client->request('GET','http://apps-itjen.kemenkeu.go.id/staging/talent/public')->getStatusCode();
+        echo $client->get('http://apps-itjen.kemenkeu.go.id/staging/talent/public')->getStatusCode();
         \Auth::logout();
         return \Redirect::to('/');
 	}
