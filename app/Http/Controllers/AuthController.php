@@ -64,10 +64,18 @@ class AuthController extends Controller {
         $client = new Client();
 
 //        $response = $client->get('http://localhost:3000/kantor/pola-karir/public/remote-logout');
-        $request = (  $client->get('http://apps-itjen.kemenkeu.go.id/staging/talent/public/remote-logout') );
-        echo $request->getStatusCode();
-        die(dd($request));
-        file_get_contents('http://apps-itjen.kemenkeu.go.id/staging/talent/public/remote-logout');
+        // $request = (  $client->get('http://apps-itjen.kemenkeu.go.id/staging/talent/public/remote-logout') );
+        // file_get_contents('http://apps-itjen.kemenkeu.go.id/staging/talent/public/remote-logout');
+        
+        
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => 'http://apps-itjen.kemenkeu.go.id/staging/talent/public/remote-logout');
+        ));
+        
+        curl_exec($curl);
+        
         \Auth::logout();
         return \Redirect::to('/');
 	}
