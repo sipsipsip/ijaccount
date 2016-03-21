@@ -63,9 +63,7 @@ class AuthController extends Controller {
 	    // log every app
         $client = new Client([
             // Base URI is used with relative requests
-            'base_uri' => 'http://httpbin.org',
             // You can set any number of default request options.
-            'timeout'  => 20.0,
         ]);
 
 //        $response = $client->get('http://localhost:3000/kantor/pola-karir/public/remote-logout');
