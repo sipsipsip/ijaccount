@@ -10,9 +10,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	use Authenticatable, CanResetPassword;
 
-	protected $connection = 'local_accounts';
+	protected $connection = 'siasni';
 	protected $primaryKey = 'nip';
-	protected $table = 'accounts';
+	protected $table = 't_user';
 
 	public $timestamps = false;
 
