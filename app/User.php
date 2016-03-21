@@ -10,9 +10,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	use Authenticatable, CanResetPassword;
 
-	protected $connection = 'siasni';
+	protected $connection = 'local_accounts';
 	protected $primaryKey = 'nip';
-	protected $table = 't_user';
+	protected $table = 'accounts';
 
 	public $timestamps = false;
 
@@ -50,5 +50,18 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
+
+
+	 /**
+      * Overrides the method to ignore the remember token.
+      */
+     public function setAttribute($key, $value)
+     {
+       $isRememberTokenAttribute = $key == $this->getRememberTokenName();
+       if (!$isRememberTokenAttribute)
+       {
+         parent::setAttribute($key, $value);
+       }
+     }
 
 }
