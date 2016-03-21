@@ -48,7 +48,9 @@ class AuthController extends Controller {
 	    $return_url = \Request::get('return_url');
 	    $remote_auth = \Request::get('remote_auth');
 	    if(\Auth::check()){
-	        $kemenkeu = \Auth::user()->kemenkeu;
+	        $user = \App\User::find(\Auth::user()->nip);
+            $kemenkeu = $user->kemenkeu;
+            echo $user;
             return \Redirect::to($remote_auth.'?identifier='.$kemenkeu.'&login_key='.$key);
         } else {
             $return_url = base64_encode($return_url);
