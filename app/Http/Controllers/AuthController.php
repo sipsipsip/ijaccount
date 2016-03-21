@@ -61,13 +61,10 @@ class AuthController extends Controller {
 	public function getLogout(){
 
 	    // log every app
-        $client = new Client([
-            // Base URI is used with relative requests
-            // You can set any number of default request options.
-        ]);
+        $client = new Client();
 
 //        $response = $client->get('http://localhost:3000/kantor/pola-karir/public/remote-logout');
-        file_get_contents('http://apps-itjen.kemenkeu.go.id/staging/talent/public') ;
+        ( $client->get('http://apps-itjen.kemenkeu.go.id/staging/talent/public/remote-logout') );
         \Auth::logout();
         return \Redirect::to('/');
 	}
