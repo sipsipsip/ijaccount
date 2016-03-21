@@ -77,6 +77,7 @@ class AuthController extends Controller {
         (curl_exec($curl));
         
         \Auth::logout();
+        Session::flush();
         return \Redirect::to('/');
 	}
 
