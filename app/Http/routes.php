@@ -15,16 +15,16 @@
 /* -------------------------------------------
     AUTHENTICATION ROUTE
     ------------------------------------------ */
-Route::get('login', 'AuthController@getLogin');
-Route::post('login', 'AuthController@postLogin');
-Route::get('/logout', 'AuthController@getLogout');
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
 
-
+Route::get('login', 'AuthController@getLogin');
+Route::post('login', 'AuthController@postLogin');
+Route::get('logout', 'AuthController@getLogout');
 /* ------------------------------------------
     TEST ROUTE
     ----------------------------------------- */
