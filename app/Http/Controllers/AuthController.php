@@ -74,7 +74,7 @@ class AuthController extends Controller {
             CURLOPT_URL => 'http://apps-itjen.kemenkeu.go.id/staging/talent/public/remote-logout'
         ));
         
-        curl_exec($curl);
+        dd(curl_exec($curl));
         
         \Auth::logout();
         return \Redirect::to('/');
