@@ -18,10 +18,15 @@ class AuthController extends Controller {
 	}
 
 	public function postLogin(){
-
 		$username = \Request::get('username');
 		$username_kemenkeu = "kemenkeu\\".$username;
 		$password = \Request::get('password');
+        // // temporary using id
+        // \Auth::loginUsingId($username);
+        // if(\Request::get('ggl')){
+		// 		    return \Redirect::to(rtrim(base64_decode(\Request::get('ggl')), '/'));
+		// 		}
+        // return \Redirect::to('/');
 
 		$ldapconn = ldap_connect ('kemenkeu.go.id') or die('can not connect');
 
@@ -59,26 +64,20 @@ class AuthController extends Controller {
 
 
 	public function getLogout(){
+        
+        $next = \Request::get('next') ? \Request::get('next') : 0;
+        $apps = [
+            'http://localhost:3000/kantor/talent/public/remote-logout',     
+            'http://localhost:3000/test/public/remote-logout',     
+        ];
 
-	    // log every app
-        $client = new Client();
-
-//        $response = $client->get('http://localhost:3000/kantor/pola-karir/public/remote-logout');
-        // $request = (  $client->get('http://apps-itjen.kemenkeu.go.id/staging/talent/public/remote-logout') );
-        // file_get_contents('http://apps-itjen.kemenkeu.go.id/staging/talent/public/remote-logout');
-        
-        
-        $curl = curl_init();
-        curl_setopt_array($curl, array(
-            CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => 'http://apps-itjen.kemenkeu.go.id/staging/talent/public/remote-logout'
-        ));
-        
-        (curl_exec($curl));
-        
-        \Auth::logout();
-        \Session::flush();
-        return \Redirect::to('/');
+        if($next >= (count($apps))){
+            \Auth::logout();
+            \Session::flush();
+            return \Redirect::to('/login');          
+        } else {  
+            return \Redirect::away($apps[$next]."?next=".($next+1));  
+        }
 	}
 
 }

@@ -51,8 +51,19 @@ return [
 			'database' => storage_path().'/database.sqlite',
 			'prefix'   => '',
 		],
+        'mysql' => [
+			'driver'    => 'mysql',
+			'host'      => env('DB_HOST', 'localhost'),
+			'database'  => env('DB_DATABASE', 'ij_accounts'),
+			'username'  => env('DB_USERNAME', 'root'),
+			'password'  => env('DB_PASSWORD', 'root'),
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+			'strict'    => false,
+		],
 
-		'mysql' => [
+		'siasni' => [
 			'driver'    => 'mysql',
 			'host'      => env('DB_HOST', 'localhost'),
 			'database'  => env('DB_DATABASE', 'ij_accounts'),
@@ -76,7 +87,7 @@ return [
 			'strict'    => false,
 		],
 
-        'siasni' => [
+        'siasni_ori' => [
             'driver'    => 'sqlsrv',
             'host'      => '10.242.35.40',
             'port'      => '1433',
