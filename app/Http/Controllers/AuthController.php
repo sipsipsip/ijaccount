@@ -38,8 +38,12 @@ class AuthController extends Controller {
 				// log in the user
 				$user = User::where('email', $username)->first();
 				\Auth::loginUsingId($user->nip);
+				
 				if(\Request::get('ggl')){
-				    return \Redirect::to(rtrim(base64_decode(\Request::get('ggl')), '/'));
+				    $redirect_url = urldecode(base64_decode(\Request::get('ggl')));
+				    $redirect_url = $redirect_url;
+				    $redirect_url = (str_replace("\x0F","", $redirect_url));
+				    return \Redirect::away($redirect_url);
 				}
 				return \Redirect::to('/');
 			}
