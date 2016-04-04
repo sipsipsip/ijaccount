@@ -14,6 +14,7 @@
     <div class="row">
     <div class="col-lg-6 col-lg-push-3" style="position:relative;text-align:center;background: lightyellow;border:1px solid lightblue;padding: 10px">
         <h4 style="position:absolute;right: -10px;top:0px;background: red;padding:4px;color: #fff">BARU</h4>
+        <h4 style="color: blue">apps-itjen.kemenkeu.go.id</h4>
         <h1>Single Sign-On</h1>
         <div>
             Login Menggunakan <b>Akun Kemenkeu</b> ke Semua Aplikasi Inspektorat Jenderal
