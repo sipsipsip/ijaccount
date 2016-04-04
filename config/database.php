@@ -56,14 +56,14 @@ return [
 			'host'      => env('DB_HOST', 'localhost'),
 			'database'  => env('DB_DATABASE', 'ij_accounts'),
 			'username'  => env('DB_USERNAME', 'root'),
-			'password'  => env('DB_PASSWORD', 'root'),
+			'password'  => env('DB_PASSWORD', '41518699'),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 			'strict'    => false,
 		],
 
-		'siasni' => [
+		'siasni_not_ori' => [
 			'driver'    => 'mysql',
 			'host'      => env('DB_HOST', 'localhost'),
 			'database'  => env('DB_DATABASE', 'ij_accounts'),
@@ -87,7 +87,7 @@ return [
 			'strict'    => false,
 		],
 
-        'siasni_ori' => [
+        'siasni' => [
             'driver'    => 'sqlsrv',
             'host'      => '10.242.35.40',
             'port'      => '1433',

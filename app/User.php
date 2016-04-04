@@ -12,7 +12,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	protected $connection = 'siasni';
 	protected $primaryKey = 'nip';
-	protected $table = 'users';
+	protected $table = 't_user';
     // protected $connection = 'local_accounts';
     // protected $table = 'users';
 

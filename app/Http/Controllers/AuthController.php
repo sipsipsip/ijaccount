@@ -67,8 +67,8 @@ class AuthController extends Controller {
         
         $next = \Request::get('next') ? \Request::get('next') : 0;
         $apps = [
-            'http://localhost:3000/kantor/talent/public/remote-logout',     
-            'http://localhost:3000/test/public/remote-logout',     
+            'http://apps-itjen.kemenkeu.go.id/talent/public/remote-logout',     
+            'http://app.portalitjen.depkeu.go.id/servdesk/remote-logout.php',     
         ];
 
         if($next >= (count($apps))){
