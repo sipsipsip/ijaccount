@@ -39,7 +39,7 @@ class AuthController extends Controller {
 				$user = User::where('email', $username)->first();
 				\Auth::loginUsingId($user->nip);
 				if(\Request::get('ggl')){
-				    return \Redirect::to(rtrim(base64_decode(\Request::get('ggl')), '/'));
+				    return \Redirect::to((base64_decode(\Request::get('ggl'))));
 				}
 				return \Redirect::to('/');
 			}
