@@ -27,7 +27,7 @@
     <form action="login" method="POST" class="col-lg-6 col-lg-offset-3 login-form">
       <input type="hidden" name="_token" value="{{csrf_token()}}">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="username kemenkeu, contoh: andika.jati" name="username" aria-describedby="basic-addon2">
+        <input type="text" class="form-control" placeholder="username kemenkeu, contoh: andhika.jati" name="username" aria-describedby="basic-addon2">
         <span class="input-group-addon" id="basic-addon2">@kemenkeu.go.id</span>
       </div>
       <br>
