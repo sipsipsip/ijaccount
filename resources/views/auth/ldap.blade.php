@@ -44,8 +44,8 @@
     <div class="row">
     <div class="col-lg-6 col-lg-push-3" style="position:relative;text-align:center;background: #eee;border:1px solid lightblue;padding: 10px">
         <div style="text-align:left">
-            Sebagai upaya meningkatkan kepuasan pengguna, <b>Bagian Sistem Informasi Pengawasan</b> sedang melakukan piloting aplikasi single sign-on. 
-            Dengan mekanisme single sign-on yang baru, pengguna cukup login sekali untuk masuk keseluruh aplikasi berbasis web di Inspektorat Jenderal.
+            Sebagai upaya meningkatkan kepuasan pengguna, <b>Bagian Sistem Informasi Pengawasan</b> sedang melakukan piloting aplikasi single sign-on G2. 
+            Dengan mekanisme single sign-on G2, pengguna cukup login sekali untuk masuk keseluruh aplikasi berbasis web di Inspektorat Jenderal.
             <br/>
             Adapun aplikasi yang sudah mendukung single sign-on G2 saat ini antara lain: 
             <ul>
