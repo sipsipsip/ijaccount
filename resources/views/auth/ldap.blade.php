@@ -56,7 +56,7 @@
             Kami akan terus melakukan integrasi ke aplikasi-aplikasi lainnya. 
             <br/>
             <div class="alert alert-danger">
-                Apabila Anda mengalami kendala dalam masuk ke aplikasi SSO, silahkan menghubungi Muhammad Azamuddin pada nomor 6584 / 6673. Terima kasih.
+                Apabila Anda mengalami kendala dalam masuk ke aplikasi SSO, silahkan menghubungi <b>Muhammad Azamuddin pada nomor 6584 / 6673</b>. Terima kasih.
             </div>
         </div>
     </div>
