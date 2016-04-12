@@ -50,7 +50,8 @@
             Adapun aplikasi yang sudah mendukung single sign-on G2 saat ini antara lain: 
             <ul>
                 <li>Aplikasi Manajemen Talenta</li>
-                <li>Aplikasi MLS (Layanan IT).</li>
+                <li>Aplikasi MLS (Layanan IT)</li>
+                <li>Aplikasi SIGITA</li>
             </ul>
             Kami akan terus melakukan integrasi ke aplikasi-aplikasi lainnya. 
             <br/>
